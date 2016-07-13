@@ -1,0 +1,27 @@
+{
+  "name": "vue-bulma-datepicker",
+  "version": "1.0.0",
+  "description": "Datepicker Component for Vue Bulma",
+  "main": "src/Datepicker.vue",
+  "devDependencies": {
+    "bulma": "^0.1.0",
+    "vue": "^1.0.26"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/vue-bulma/datepicker.git",
+  "keywords": [
+    "vue",
+    "bulma",
+    "vue-bulma",
+    "vue-bulma-component",
+    "vue-bulma-datepicker",
+    "datepicker"
+  ],
+  "author": "Fangdun Cai <cfddream@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "flatpickr": "github:chmln/flatpickr#gh-pages"
+  }
+}
