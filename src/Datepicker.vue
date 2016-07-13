@@ -9,8 +9,8 @@ import Datepicker from './Datepicker.js'
 
 export default {
   partials: {
-    singleInput: require('./datepicker/singleInput.html'),
-    wrapperInput: require('./datepicker/wrapperInput.html')
+    singleInput: require('./singleInput.html'),
+    wrapperInput: require('./wrapperInput.html')
   },
   props: {
     alignment: String,
