@@ -1,14 +1,13 @@
 {
   "name": "vue-bulma-datepicker",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Datepicker Component for Vue Bulma",
   "main": "src/Datepicker.vue",
   "devDependencies": {
     "bulma": "^0.1.0",
     "vue": "^1.0.26"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "repository": "git+https://github.com/vue-bulma/datepicker.git",
   "keywords": [
     "vue",
