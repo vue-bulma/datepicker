@@ -1,6 +1,6 @@
 {
   "name": "vue-bulma-datepicker",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Datepicker Component for Vue Bulma",
   "main": "src/Datepicker.vue",
   "devDependencies": {
