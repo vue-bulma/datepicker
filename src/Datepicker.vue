@@ -16,11 +16,11 @@ export default {
     alignment: String,
     config: {
       type: Object,
-      default: () => {}
+      default: () => ({})
     },
     l10n: {
       type: Object,
-      default: () => {}
+      default: () => ({})
     },
     placeholder: {
       type: String,
@@ -31,19 +31,45 @@ export default {
   },
 
   ready () {
-    this.datepicker = new Datepicker(this.$el.nextSibling, this.config, this.l10n)
-    this.datepicker.set('onChange', (d, s) => {
-      this.$set('value', s)
-    })
+    this.create()
   },
 
   beforeDestroy () {
-    this.datepicker.destroy()
+    this.destroy()
+  },
+
+  attached () {
+    this.create()
+  },
+
+  detached () {
+    this.destroy()
+  },
+
+  methods: {
+    create () {
+      if (!this.datepicker) {
+        this.datepicker = new Datepicker(this.$el.nextSibling, this.config, this.l10n)
+        this.datepicker.set('onChange', (d, s) => {
+        this.$set('value', s)
+      })
+      }
+    },
+
+    destroy () {
+      if (this.datepicker && !this.static) {
+        this.datepicker.destroy()
+        this.datepicker = null
+      }
+    }
   },
 
   computed: {
     wrap () {
       return !!this.config.wrap
+    },
+    static () {
+      return !!this.config.static
     },
     name () {
       return this.wrap ? 'wrapperInput' : 'singleInput'
