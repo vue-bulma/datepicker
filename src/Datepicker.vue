@@ -16,15 +16,11 @@ export default {
     alignment: String,
     config: {
       type: Object,
-      default () {
-        return {}
-      }
+      default: () => {}
     },
     l10n: {
       type: Object,
-      default () {
-        return {}
-      }
+      default: () => {}
     },
     placeholder: {
       type: String,
@@ -53,7 +49,6 @@ export default {
       return this.wrap ? 'wrapperInput' : 'singleInput'
     }
   }
-
 }
 </script>
 
