@@ -1,6 +1,6 @@
 {
   "name": "vue-bulma-datepicker",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Datepicker Component for Vue Bulma",
   "main": "src/Datepicker.vue",
   "peerDependencies": {
