@@ -4,8 +4,8 @@
   "description": "Datepicker Component for Vue Bulma",
   "main": "src/Datepicker.vue",
   "peerDependencies": {
-    "bulma": "^0.1.0",
-    "vue": "^1.0.26"
+    "bulma": "^0.1",
+    "vue": ">=2.0.0-beta.0"
   },
   "scripts": {},
   "repository": "git+https://github.com/vue-bulma/datepicker.git",
