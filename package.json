@@ -20,6 +20,6 @@
   "author": "Fangdun Cai <cfddream@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "flatpickr": "1.9.1"
+    "flatpickr": "chmln/flatpickr#gh-pages"
   }
 }
