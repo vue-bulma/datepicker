@@ -1,6 +1,6 @@
 {
   "name": "vue-bulma-datepicker",
-  "version": "2.0.1",
+  "version": "1.0.0",
   "description": "Datepicker Component for Vue Bulma",
   "main": "src/Datepicker.vue",
   "peerDependencies": {
@@ -20,6 +20,6 @@
   "author": "Fangdun Cai <cfddream@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "flatpickr": "github:chmln/flatpickr#gh-pages"
+    "flatpickr": "1.9.1"
   }
 }
