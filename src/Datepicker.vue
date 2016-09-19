@@ -37,19 +37,11 @@ export default {
     value: String
   },
 
-  ready () {
+  mounted () {
     this.create()
   },
 
   beforeDestroy () {
-    this.destroy()
-  },
-
-  attached () {
-    this.create()
-  },
-
-  detached () {
     this.destroy()
   },
 

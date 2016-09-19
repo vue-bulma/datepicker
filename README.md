@@ -5,7 +5,7 @@ Datepicker component is based on [flatpickr](https://github.com/chmln/flatpickr)
 ## Installation
 
 ```
-$ npm install vue-bulma-datepicker
+$ npm install vue-bulma-datepicker --save
 ```
 
 ## Examples
@@ -56,6 +56,6 @@ export default {
 
 ---
 
-> [fundon.me](https://fundun.me) &nbsp;&middot;&nbsp;
+> [fundon.me](https://fundon.me) &nbsp;&middot;&nbsp;
 > GitHub [@fundon](https://github.com/fundon) &nbsp;&middot;&nbsp;
 > Twitter [@_fundon](https://twitter.com/_fundon)
