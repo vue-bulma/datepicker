@@ -1,11 +1,13 @@
 <template>
-  <partial :name="name">
+  <component :is="wrap ? 'WrapperInput' : 'SingleInput'">
     <slot></slot>
-  </partial>
+  </component>
 </template>
 
 <script>
-import { init as Flatpickr } from 'flatpickr'
+import Flatpickr from 'flatpickr'
+import SingleInput from './SingleInput'
+import WrapperInput from './WrapperInput'
 
 function Datepicker (selector, config, l10n) {
   this.l10n = Object.assign({}, Flatpickr.prototype.l10n, l10n)
@@ -15,10 +17,11 @@ function Datepicker (selector, config, l10n) {
 Datepicker.prototype = Flatpickr.prototype
 
 export default {
-  partials: {
-    singleInput: require('./singleInput.html'),
-    wrapperInput: require('./wrapperInput.html')
+  components: {
+    SingleInput,
+    WrapperInput
   },
+
   props: {
     alignment: String,
     config: {
@@ -28,38 +31,29 @@ export default {
     l10n: {
       type: Object,
       default: () => ({})
-    },
-    placeholder: {
-      type: String,
-      default: 'Pick date'
-    },
-    readonly: Boolean,
-    value: String
+    }
+  },
+
+  data () {
+    return {
+      value: '',
+      datepicker: null
+    }
   },
 
   mounted () {
-    this.create()
+    if (!this.datepicker) {
+      this.datepicker = new Datepicker(this.$el, this.config, this.l10n)
+      this.datepicker.set('onChange', (d, s) => {
+        this.value = s
+      })
+    }
   },
 
   beforeDestroy () {
-    this.destroy()
-  },
-
-  methods: {
-    create () {
-      if (!this.datepicker) {
-        this.datepicker = new Datepicker(this.$el.nextSibling, this.config, this.l10n)
-        this.datepicker.set('onChange', (d, s) => {
-        this.$set('value', s)
-      })
-      }
-    },
-
-    destroy () {
-      if (this.datepicker && !this.static) {
-        this.datepicker.destroy()
-        this.datepicker = null
-      }
+    if (this.datepicker && !this.static) {
+      this.datepicker.destroy()
+      this.datepicker = null
     }
   },
 
