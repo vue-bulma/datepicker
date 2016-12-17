@@ -1,5 +1,5 @@
 <template>
-  <component :value="value" :is="wrap ? 'WrapperInput' : 'SingleInput'">
+  <component :value="value" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'">
     <slot></slot>
   </component>
 </template>
@@ -29,6 +29,10 @@ export default {
       default: () => ({})
     },
     l10n: {
+      type: Object,
+      default: () => ({})
+    },
+    inputClass: {
       type: Object,
       default: () => ({})
     }

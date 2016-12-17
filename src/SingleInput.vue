@@ -1,5 +1,5 @@
 <template>
-  <input class="input" type="text" :placeholder="placeholder" :readonly="readonly" v-model="value"/>
+  <input class="input" :class="inputClass" type="text" :placeholder="placeholder" :readonly="readonly" v-model="value"/>
 </template>
 
 <script>
@@ -18,7 +18,11 @@ export default {
       type: String,
       default: 'Pick date'
     },
-    readonly: Boolean
+    readonly: Boolean,
+    inputClass: {
+      type: Object,
+      default: () => ({})
+    }
   },
 
   data () {
