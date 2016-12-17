@@ -86,5 +86,5 @@ $day_hover_background_color = #d3d6db
 $today_color = #ed6c63
 $selected_day_background = #1fc8db
 
-@import '~flatpickr/src/style/flatpickr_base'
+@import '~flatpickr/src/style/flatpickr'
 </style>
