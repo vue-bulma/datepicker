@@ -21,8 +21,13 @@ export default {
       type: String,
       default: 'Pick date'
     },
-    readonly: Boolean,
-    value: String
+    readonly: Boolean
+  },
+
+  data () {
+    return {
+      value: ''
+    }
   }
 }
 </script>
