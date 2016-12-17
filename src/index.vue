@@ -91,4 +91,7 @@ $today_color = #ed6c63
 $selected_day_background = #1fc8db
 
 @import '~flatpickr/src/style/flatpickr'
+
+.flatpickr-calendar.hasWeeks
+  width: auto !important
 </style>
