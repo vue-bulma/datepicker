@@ -45,8 +45,7 @@ export default {
     if (!this.datepicker) {
       this.datepicker = new Datepicker(this.$el, this.config, this.l10n)
       this.datepicker.set('onChange', (d, s) => {
-        this.$emit('input', s)
-        this.value = s
+        this.$emit('input', this.value = s)
       })
     }
   },
