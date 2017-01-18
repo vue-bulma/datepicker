@@ -1,5 +1,5 @@
 <template>
-  <component :value="value" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'">
+  <component :value="value" :placeholder="placeholder" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'">
     <slot></slot>
   </component>
 </template>
@@ -35,6 +35,10 @@ export default {
     inputClass: {
       type: Object,
       default: () => ({})
+    },
+    placeholder: {
+      type: String,
+      default: 'Pick date'
     }
   },
 
