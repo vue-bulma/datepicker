@@ -28,6 +28,10 @@ export default {
     }
   },
 
+  mounted () {
+    this.value = this.$el.value
+  },
+
   data () {
     return {
       value: ''

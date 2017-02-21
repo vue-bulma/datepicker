@@ -1,5 +1,5 @@
 <template>
-  <component :value="value" :placeholder="placeholder" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'">
+  <component :placeholder="placeholder" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'">
     <slot></slot>
   </component>
 </template>
