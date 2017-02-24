@@ -5,3 +5,7 @@
 flatpickr@2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-2.2.4.tgz#6d708a7771fb888963ec9db8979a039f0f0db208"
+
+vue-click-outside@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue-click-outside/-/vue-click-outside-1.0.0.tgz#8f2abb052b0050420ab3d0f9a44be4869a38d68a"

@@ -1,5 +1,5 @@
 <template>
-  <component :placeholder="placeholder" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'">
+  <component :placeholder="placeholder" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'" v-click-outside="closePicker">
     <slot></slot>
   </component>
 </template>
@@ -8,6 +8,7 @@
 import Flatpickr from 'flatpickr'
 import SingleInput from './SingleInput'
 import WrapperInput from './WrapperInput'
+import ClickOutside from 'vue-click-outside'
 
 function Datepicker (selector, config, l10n) {
   this.l10n = Object.assign({}, Flatpickr.prototype.l10n, l10n)
@@ -52,6 +53,7 @@ export default {
   mounted () {
     if (!this.datepicker) {
       this.datepicker = new Datepicker(this.$el, this.config, this.l10n)
+      this.popupItem = this.datepicker.calendarContainer
       this.datepicker.set('onChange', (d, s) => {
         this.$emit('input', this.value = s)
       })
@@ -75,6 +77,16 @@ export default {
     name () {
       return this.wrap ? 'wrapperInput' : 'singleInput'
     }
+  },
+
+  methods: {
+    closePicker () {
+      this.datepicker.close()
+    }
+  },
+
+  directives: {
+    ClickOutside
   }
 }
 </script>
