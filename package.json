@@ -20,6 +20,6 @@
   "license": "MIT",
   "dependencies": {
     "flatpickr": "2.2.4",
-    "vue-click-outside": "^1.0.0"
+    "vue-click-outside": "1.0.1"
   }
 }
