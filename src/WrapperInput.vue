@@ -1,6 +1,6 @@
 <template>
   <p class="control has-addons flatpickr" data-wrap="true" data-clickOpens="false" :class="{ [`has-addons-${alignment}`]: alignment }">
-    <input class="input" :class="inputClass" type="text" :placeholder="placeholder" :readonly="readonly" v-model="value" data-input/>
+    <input class="input" :class="inputClass" type="text" :placeholder="placeholder" :readonly="readonly" v-model="date" data-input/>
     <slot></slot>
   </p>
 </template>
@@ -25,7 +25,8 @@ export default {
     inputClass: {
       type: Object,
       default: () => ({})
-    }
+    },
+    value: String
   },
 
   mounted () {
@@ -34,7 +35,17 @@ export default {
 
   data () {
     return {
-      value: ''
+    }
+  },
+
+  computed: {
+    date: {
+      get() {
+        return this.value;
+      },
+      set(newValue) {
+        this.$emit('input', newValue);
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <component :placeholder="placeholder" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'" v-click-outside="closePicker">
+  <component v-model="date" :placeholder="placeholder" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'" v-click-outside="closePicker">
     <slot></slot>
   </component>
 </template>
@@ -40,12 +40,12 @@ export default {
     placeholder: {
       type: String,
       default: 'Pick date'
-    }
+    },
+    value: String
   },
 
   data () {
     return {
-      value: '',
       datepicker: null
     }
   },
@@ -55,7 +55,7 @@ export default {
       this.datepicker = new Datepicker(this.$el, this.config, this.l10n)
       this.popupItem = this.datepicker.calendarContainer
       this.datepicker.set('onChange', (d, s) => {
-        this.$emit('input', this.value = s)
+        this.date = s;
       })
     }
   },
@@ -76,6 +76,14 @@ export default {
     },
     name () {
       return this.wrap ? 'wrapperInput' : 'singleInput'
+    },
+    date: {
+    	get(){
+    		return this.value
+    	},
+    	set(newValue){
+    		this.$emit('input', newValue)
+    	}
     }
   },
 
