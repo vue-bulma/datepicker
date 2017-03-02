@@ -1,6 +1,6 @@
 {
   "name": "vue-bulma-datepicker",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "Datepicker Component for Vue Bulma",
   "main": "src/index.vue",
   "peerDependencies": {
@@ -20,6 +20,6 @@
   "license": "MIT",
   "dependencies": {
     "flatpickr": "2.4.2",
-    "vue-click-outside": "1.0.1"
+    "vue-click-outside": "^1.0.2"
   }
 }
