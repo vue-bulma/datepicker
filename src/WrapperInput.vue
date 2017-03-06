@@ -6,47 +6,13 @@
 </template>
 
 <script>
+import BaseInput from './BaseInput'
+
 export default {
+  mixins: [BaseInput],
+
   props: {
-    alignment: String,
-    config: {
-      type: Object,
-      default: () => ({})
-    },
-    l10n: {
-      type: Object,
-      default: () => ({})
-    },
-    placeholder: {
-      type: String,
-      default: 'Pick date'
-    },
-    readonly: Boolean,
-    inputClass: {
-      type: Object,
-      default: () => ({})
-    },
-    value: String
-  },
-
-  mounted () {
-    this.value = this.$el.value
-  },
-
-  data () {
-    return {
-    }
-  },
-
-  computed: {
-    date: {
-      get() {
-        return this.value;
-      },
-      set(newValue) {
-        this.$emit('input', newValue);
-      }
-    }
+    readonly: Boolean
   }
 }
 </script>

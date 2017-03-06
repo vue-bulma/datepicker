@@ -3,43 +3,13 @@
 </template>
 
 <script>
-export default {
-  props: {
-    alignment: String,
-    config: {
-      type: Object,
-      default: () => ({})
-    },
-    l10n: {
-      type: Object,
-      default: () => ({})
-    },
-    placeholder: {
-      type: String,
-      default: 'Pick date'
-    },
-    readonly: Boolean,
-    inputClass: {
-      type: Object,
-      default: () => ({})
-    },
-    value: String
-  },
+import BaseInput from './BaseInput'
 
-  data () {
-    return {
-    }
-  },
-  
-  computed: {
-    date: {
-      get() {
-        return this.value;
-      },
-      set(newValue) {
-        this.$emit('input', newValue);
-      }
-    }
+export default {
+  mixins: [BaseInput],
+
+  props: {
+    readonly: Boolean
   }
 }
 </script>

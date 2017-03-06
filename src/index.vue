@@ -6,6 +6,7 @@
 
 <script>
 import Flatpickr from 'flatpickr'
+import BaseInput from './BaseInput'
 import SingleInput from './SingleInput'
 import WrapperInput from './WrapperInput'
 import ClickOutside from 'vue-click-outside'
@@ -18,30 +19,11 @@ function Datepicker (selector, config, l10n) {
 Datepicker.prototype = Flatpickr.prototype
 
 export default {
+  mixins: [BaseInput],
+
   components: {
     SingleInput,
     WrapperInput
-  },
-
-  props: {
-    alignment: String,
-    config: {
-      type: Object,
-      default: () => ({})
-    },
-    l10n: {
-      type: Object,
-      default: () => ({})
-    },
-    inputClass: {
-      type: Object,
-      default: () => ({})
-    },
-    placeholder: {
-      type: String,
-      default: 'Pick date'
-    },
-    value: String
   },
 
   data () {
@@ -54,9 +36,6 @@ export default {
     if (!this.datepicker) {
       this.datepicker = new Datepicker(this.$el, this.config, this.l10n)
       this.popupItem = this.datepicker.calendarContainer
-      this.datepicker.set('onChange', (d, s) => {
-        this.date = s;
-      })
     }
   },
 
@@ -76,14 +55,6 @@ export default {
     },
     name () {
       return this.wrap ? 'wrapperInput' : 'singleInput'
-    },
-    date: {
-    	get(){
-    		return this.value
-    	},
-    	set(newValue){
-    		this.$emit('input', newValue)
-    	}
     }
   },
 
