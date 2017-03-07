@@ -37,12 +37,21 @@ export default {
       this.datepicker = new Datepicker(this.$el, this.config, this.l10n)
       this.popupItem = this.datepicker.calendarContainer
     }
+    this.$watch('config', this.redraw)
   },
 
   beforeDestroy () {
     if (this.datepicker && !this.static) {
       this.datepicker.destroy()
       this.datepicker = null
+    }
+  },
+  
+  methods: {
+    redraw(newConfig) {
+      this.datepicker.config = Object.assign(this.datepicker.config, newConfig)
+      this.datepicker.redraw()
+      this.datepicker.jumpToDate()
     }
   },
 
