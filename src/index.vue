@@ -69,7 +69,7 @@ export default {
 
   methods: {
     closePicker () {
-      this.datepicker.close()
+      this.datepicker && this.datepicker.close()
     }
   },
 
