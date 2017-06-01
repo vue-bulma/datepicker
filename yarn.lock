@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-flatpickr@2.4.2:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-2.4.2.tgz#8a92ef6daac4fd298f0dd247e13228197de58e7d"
+flatpickr@^2.5.7:
+  version "2.5.8"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-2.5.8.tgz#e9a0eb73c6e95573fcdcd378c8487e22902c3eac"
 
 vue-click-outside@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/vue-click-outside/-/vue-click-outside-1.0.2.tgz#b2803d0b949163f4824c72829e677e4f9f7ca6a8"
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/vue-click-outside/-/vue-click-outside-1.0.5.tgz#f0ba4f00e9fbbb8e78274651f1085c8602fe9b16"
