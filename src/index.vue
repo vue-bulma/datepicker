@@ -46,12 +46,15 @@ export default {
       this.datepicker = null
     }
   },
-  
+
   methods: {
     redraw(newConfig) {
       this.datepicker.config = Object.assign(this.datepicker.config, newConfig)
       this.datepicker.redraw()
       this.datepicker.jumpToDate()
+    },
+    closePicker () {
+      this.datepicker && this.datepicker.close()
     }
   },
 
@@ -64,12 +67,6 @@ export default {
     },
     name () {
       return this.wrap ? 'wrapperInput' : 'singleInput'
-    }
-  },
-
-  methods: {
-    closePicker () {
-      this.datepicker && this.datepicker.close()
     }
   },
 
