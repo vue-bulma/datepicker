@@ -1,25 +1,27 @@
 <template>
-  <component v-model="date" :placeholder="placeholder" :inputClass="inputClass" :is="wrap ? 'WrapperInput' : 'SingleInput'" v-click-outside="closePicker">
+  <component :value="date" :placeholder="placeholder" 
+    :inputClass="inputClass" :alignment="alignment" 
+    :is="wrap ? 'WrapperInput' : 'SingleInput'">
     <slot></slot>
   </component>
 </template>
 
 <script>
-import Flatpickr from 'flatpickr'
-import BaseInput from './BaseInput'
+import BasicInput from './BasicInput'
 import SingleInput from './SingleInput'
 import WrapperInput from './WrapperInput'
-import ClickOutside from 'vue-click-outside'
-
-function Datepicker (selector, config, l10n) {
-  this.l10n = Object.assign({}, Flatpickr.prototype.l10n, l10n)
-  return Flatpickr.call(this, selector, config)
-}
-
-Datepicker.prototype = Flatpickr.prototype
+import Flatpickr from 'flatpickr'
 
 export default {
-  mixins: [BaseInput],
+  mixins: [BasicInput],
+
+  props: {
+    alignment: String,
+    config: {
+      type: Object,
+      default: () => ({})
+    }
+  },
 
   components: {
     SingleInput,
@@ -28,16 +30,19 @@ export default {
 
   data () {
     return {
-      datepicker: null
+      datepicker: null,
+      selectedDates: null
     }
   },
 
   mounted () {
     if (!this.datepicker) {
-      this.datepicker = new Datepicker(this.$el, this.config, this.l10n)
-      this.popupItem = this.datepicker.calendarContainer
+      this.config.onValueUpdate = this.dateUpdated
+      this.datepicker = new Flatpickr(this.$el, this.config)
+      this.setDate(this.value)
     }
     this.$watch('config', this.redraw)
+    this.$watch('value', this.setDate)
   },
 
   beforeDestroy () {
@@ -48,13 +53,16 @@ export default {
   },
 
   methods: {
-    redraw(newConfig) {
+    redraw (newConfig) {
       this.datepicker.config = Object.assign(this.datepicker.config, newConfig)
       this.datepicker.redraw()
       this.datepicker.jumpToDate()
     },
-    closePicker () {
-      this.datepicker && this.datepicker.close()
+    setDate (newDate, oldDate) {
+      newDate && this.datepicker.setDate(newDate)
+    },
+    dateUpdated (selectedDates, dateStr) {
+      this.date = dateStr
     }
   },
 
@@ -67,11 +75,18 @@ export default {
     },
     name () {
       return this.wrap ? 'wrapperInput' : 'singleInput'
+    },
+    date: {
+      get() {
+        return this.selectedDates || this.value
+      },
+      set(newValue) {
+        if (this.selectedDates === newValue) {
+          this.selectedDates = newValue
+          this.$emit('input', newValue)
+        }
+      }
     }
-  },
-
-  directives: {
-    ClickOutside
   }
 }
 </script>

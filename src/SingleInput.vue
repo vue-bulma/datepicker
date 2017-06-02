@@ -1,15 +1,11 @@
 <template>
-  <input class="input" :class="inputClass" type="text" :placeholder="placeholder" :readonly="readonly" v-model="date"/>
+  <input class="input" :class="inputClass" type="text" :placeholder="placeholder" :value="value"/>
 </template>
 
 <script>
-import BaseInput from './BaseInput'
+import BasicInput from './BasicInput'
 
 export default {
-  mixins: [BaseInput],
-
-  props: {
-    readonly: Boolean
-  }
+  mixins: [BasicInput]
 }
 </script>
