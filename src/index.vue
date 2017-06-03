@@ -81,7 +81,7 @@ export default {
         return this.selectedDates || this.value
       },
       set(newValue) {
-        if (this.selectedDates === newValue) {
+        if (this.selectedDates !== newValue) {
           this.selectedDates = newValue
           this.$emit('input', newValue)
         }
