@@ -5,7 +5,7 @@ export default {
       default: 'Pick date'
     },
     inputClass: {
-      type: Object,
+      type: [Object, Array],
       default: () => ({})
     },
     value: String
