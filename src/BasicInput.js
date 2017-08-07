@@ -6,7 +6,7 @@ export default {
     },
     inputClass: {
       type: [Object, Array],
-      default() {
+      default: function() {
         return {}
       }
     },
