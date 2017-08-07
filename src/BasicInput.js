@@ -6,7 +6,9 @@ export default {
     },
     inputClass: {
       type: [Object, Array],
-      default: () => ({})
+      default() {
+        return {}
+      }
     },
     value: String
   }
